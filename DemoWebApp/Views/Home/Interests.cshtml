@@ -1,0 +1,40 @@
+﻿@model DemoWebApp.Models.InterestsViewModel
+@{
+    ViewData["Title"] = "Interests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Interests</h1>
+
+<div>
+    <hr />
+    <div style="padding: 5%;">
+        <table cellpadding="20">
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Subscribed
+                </th>
+            </tr>
+            @foreach (var item in Model.Interests)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        <input type="checkbox" id="subscribed" class="js_subscribed" checked="@item.IsSubscribedTo" title="@item.Title" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
